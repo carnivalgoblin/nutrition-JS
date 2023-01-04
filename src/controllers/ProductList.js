@@ -1,5 +1,8 @@
 "use strict"
 
+const { info } = require("../api/product")
+const addProductTemplate = require("../templates/ProductList/addProduct.ejs")
+
 /**
  * 
  * @param {HTMLTableElement} listElement 
@@ -13,6 +16,14 @@ ProductList.prototype.init = function () {
 }
 
 ProductList.prototype.addProduct = function (fdcId) {
+    info(fdcId)
+        .then((product) => {
+            const productHtml = addProductTemplate({ title: product['description'] })
+
+            /* this.listElement.innerHTML = productHtml */
+            this.listElement.insertAdjacentHTML("beforeend", productHtml)
+            console.log(productHtml)
+        })
     console.log("add product: " + fdcId)
 }
 
