@@ -1,4 +1,4 @@
-<tr>
+<tr class="product-search__product-row" data-fdcid="<%= fdcId %>">
     <td>
         <span>
             <%= title %>
@@ -6,7 +6,8 @@
     </td>
     <td>
         <input class="product-amount" type="number" value="100" min="0" />
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <button type="button" class="close product-search__remove-product" data-dismiss="alert" aria-label="Close"
+            data-fdcid="<%= fdcId %>">
             <span aria-hidden="true">&times;</span>
         </button>
     </td>
