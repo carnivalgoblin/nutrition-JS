@@ -15,6 +15,7 @@
     "axios": "^0.18.1",
     "bootstrap": "^4.6.2",
     "bootswatch": "^4.6.2",
+    "eventemitter3": "^5.0.0",
     "html-minifier": "^4.0.0",
     "lodash": "^4.17.21"
   },

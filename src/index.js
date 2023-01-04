@@ -2,10 +2,25 @@
 
 require("../scss/index.scss")
 
-const {search, info} = require("./api/product")
+const ProductSearch = require("./controllers/ProductSearch")
+const ProductList = require("./controllers/ProductList")
 
-const testTemplate = require("./templates/test.ejs")
-console.log(testTemplate({name: "TEST!"}))
+const productSearch = new ProductSearch(
+    document.getElementById("productSearchInput"),
+    document.getElementById("productSearchButton"),
+    document.getElementById("productSearchResults")
+)
 
-search("Apple").then((res) => console.log(res))
-// info(171689).then((res) => console.log(res))
+productSearch.init()
+
+const productList = new ProductList(
+    document.getElementById("productList")
+)
+
+productList.init()
+
+productList.addProduct(2011468)
+
+productSearch.events.on("productSelected", (fdcId) => {
+    productList.addProduct(fdcId)
+})
